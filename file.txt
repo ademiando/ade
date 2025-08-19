@@ -1,0 +1,45 @@
+nextjs-3d-portfolio/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── providers.tsx
+│   ├── favicon.ico
+│   ├── icon.png
+│   └── opengraph-image.png
+├── components/
+│   ├── ui/
+│   │   ├── Button.tsx
+│   │   ├── DarkModeToggle.tsx
+│   │   └── Loader.tsx
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── Work.tsx
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   └── three/
+│       ├── Scene.tsx
+│       ├── Particles.tsx
+│       ├── Nebula.tsx
+│       ├── Aurora.tsx
+│       ├── CameraRig.tsx
+│       └── Effects.tsx
+├── lib/
+│   ├── utils.ts
+│   └── constants.ts
+├── hooks/
+│   ├── useDarkMode.ts
+│   └── useParallax.ts
+├── types/
+│   └── index.ts
+├── public/
+│   └── fonts/
+├── next.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── package.json
+├── postcss.config.js
+├── vercel.json
+├── .gitignore
+└── README.md
