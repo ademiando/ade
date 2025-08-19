@@ -2,6 +2,7 @@
 
 import { EffectComposer, Bloom, ChromaticAberration, DepthOfField, Noise, Vignette } from '@react-three/postprocessing'
 import { BlendFunction } from 'postprocessing'
+import { Vector2 } from 'three'
 
 export default function Effects() {
   return (
@@ -19,7 +20,7 @@ export default function Effects() {
         height={300}
       />
       <ChromaticAberration
-        offset={[0.002, 0.002]}
+        offset={new Vector2(0.002, 0.002)}
         radialModulation={false}
         modulationOffset={0}
       />
