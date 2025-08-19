@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 
 type DarkModeContextType = {
   isDark: boolean
@@ -9,15 +9,16 @@ type DarkModeContextType = {
 
 const DarkModeContext = createContext<DarkModeContextType | undefined>(undefined)
 
-export function DarkModeProvider({ children }: { children: React.ReactNode }) {
+export function DarkModeProvider({ children }: { children: ReactNode }) {
   const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
     // Check if dark mode is preferred or saved in localStorage
-    const saved = localStorage.getItem('darkMode')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    
-    setIsDark(saved ? JSON.parse(saved) : prefersDark)
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('darkMode')
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      setIsDark(saved ? JSON.parse(saved) : prefersDark)
+    }
   }, [])
 
   useEffect(() => {
@@ -29,7 +30,9 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
     }
     
     // Save preference to localStorage
-    localStorage.setItem('darkMode', JSON.stringify(isDark))
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('darkMode', JSON.stringify(isDark))
+    }
   }, [isDark])
 
   const toggleDarkMode = () => {
